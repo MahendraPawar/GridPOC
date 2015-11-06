@@ -1,0 +1,103 @@
+﻿@model ICollection<PayMaster.Framework.Model.OpCode>
+@using GridMvcPOC
+@{
+    ViewBag.Title = "WebGridSample";
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.9.0.js"></script>
+<style type="text/css">
+    table {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #666666;
+        border-collapse: collapse;
+    }
+
+        table th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+
+        table td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+</style>
+
+<h2>WebGridSample</h2>
+<div id="gridContent">
+    @*@grid.GetHtml(tableStyle: "table",
+                headerStyle: "head",
+                caption: "Opcode Center Data",
+                alternatingRowStyle: "altRow",
+                selectedRowStyle: "selectRow",
+                mode: WebGridPagerModes.All,
+                htmlAttributes: new { id = "datatable" },
+                firstText: "First",
+                previousText: "Prev",
+                nextText: "Next",
+                lastText: "Last",
+                numericLinksCount: 10,
+                columns: grid.Columns(
+                grid.Column(format: (item) => Html.ActionLink("Edit", "Edit", new { opcodeid = item.OpcodeId }, new { onclick = "return confirm('Are you sure?');", @class = "dialog" })),
+                grid.Column(format: (item) => Html.ActionLink("Delete", "Delete", new { opcodeid = item.OpcodeId }, new { onclick = "return confirm('Are you sure?');" })),
+                grid.Column("OpcodeId", format: (item) => item.GetSelectLink(item.OpcodeId.ToString())),
+                grid.Column("OpcodeName", " OpcodeName"),
+                grid.Column("OpcodeDescription", "OpcodeDescription", style: "description")
+         ))
+    @Html.NewLabel("html helper example")
+
+    @Html.Grid(Model);*@
+    
+    @Html.Grid(Model, new List<WebGridColumn> {
+        new WebGridColumn(){Format=(item)=>Html.ActionLink("Delete", "Delete", new { opcodeid = item.OpcodeId }, new { onclick = "return confirm('Are you sure?');" })},
+        //new WebGridColumn(){Format=(item)=>@Html.EncodedActionLink("Delete", "Delete", "Home", new { opcodeid = item.OpcodeId },new {})},
+        new WebGridColumn(){ColumnName ="OpcodeId",Header="Opcode ID"},
+        new WebGridColumn(){ColumnName ="OpcodeName",Header="Opcode Name"},
+        new WebGridColumn(){ColumnName ="OpcodeDescription",Header="Opcode Description"},});
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Some text in the modal.
+                    @Html.Partial("Edit")
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('a.dialog').click(function () {
+            var url = $(this).attr('href');
+            var id = url.split("=");
+            console.log(id[1]);
+            $('#myModal').modal('show');
+            return false;
+        });
+    });
+</script>
+<script src="~/Scripts/bootstrap.js"></script>

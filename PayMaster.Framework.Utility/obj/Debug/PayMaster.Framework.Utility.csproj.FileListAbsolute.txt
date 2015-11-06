@@ -1,0 +1,8 @@
+D:\Paymaster\PayMaster\Code\Services\PayMasterCommunicator\PayMaster.Framework.Utility\bin\Debug\PayMaster.Framework.Utility.dll
+D:\Paymaster\PayMaster\Code\Services\PayMasterCommunicator\PayMaster.Framework.Utility\bin\Debug\PayMaster.Framework.Utility.pdb
+D:\Paymaster\PayMaster\Code\Services\PayMasterCommunicator\PayMaster.Framework.Utility\obj\Debug\PayMaster.Framework.Utility.dll
+D:\Paymaster\PayMaster\Code\Services\PayMasterCommunicator\PayMaster.Framework.Utility\obj\Debug\PayMaster.Framework.Utility.pdb
+D:\Projects\GridMvcPOC\PayMaster.Framework.Utility\bin\Debug\PayMaster.Framework.Utility.dll
+D:\Projects\GridMvcPOC\PayMaster.Framework.Utility\bin\Debug\PayMaster.Framework.Utility.pdb
+D:\Projects\GridMvcPOC\PayMaster.Framework.Utility\obj\Debug\PayMaster.Framework.Utility.dll
+D:\Projects\GridMvcPOC\PayMaster.Framework.Utility\obj\Debug\PayMaster.Framework.Utility.pdb

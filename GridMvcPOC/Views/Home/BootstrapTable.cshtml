@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "BootstrapTable";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2>BootstrapTable</h2>
+<table id="table"
+    class="table"
+    data-toggle="table"
+    data-url="@Url.Action("GetData", "Home")"
+     data-show-refresh="true"
+           data-show-footer="true"
+           data-side-pagination="server"
+           data-method="GET"
+
+           data-show-pagination-switch="true"
+           data-pagination="true"
+           data-page-size="10"
+    >
+    <thead>
+        <tr>
+            <th data-sortable="true" data-field="OpcodeName">Opcode Name</th>
+            <th data-sortable="true" data-field="OpcodeDescription">Opcode Description</th>
+            <th data-sortable="true" data-field="ProgramId">Program</th>
+            <th data-sortable="true" data-field="UpdatedDate">Updated Date</th>
+        </tr>
+    </thead>
+</table>
+
+
+
+<script src="~/Scripts/jquery-1.9.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap-table.js"></script>
+
+<script>
+
+    function params() {
+
+
+    }
+
+</script>

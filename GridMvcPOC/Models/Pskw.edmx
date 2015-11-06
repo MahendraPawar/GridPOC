@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PayMasterCommunicatorModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PayMasterCommunicatorModelStoreContainer">
+          <EntitySet Name="tblOpcode" EntityType="PayMasterCommunicatorModel.Store.tblOpcode" store:Type="Tables" Schema="PayMaster" />
+        </EntityContainer>
+        <EntityType Name="tblOpcode">
+          <Key>
+            <PropertyRef Name="OpcodeID" />
+          </Key>
+          <Property Name="OpcodeID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OpcodeName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="OpcodeDescription" Type="varchar" MaxLength="100" />
+          <Property Name="ProgramID" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PayMasterCommunicatorModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PayMasterCommunicatorEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblOpcodes" EntityType="PayMasterCommunicatorModel.tblOpcode" />
+        </EntityContainer>
+        <EntityType Name="tblOpcode">
+          <Key>
+            <PropertyRef Name="OpcodeID" />
+          </Key>
+          <Property Name="OpcodeID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OpcodeName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OpcodeDescription" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ProgramID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PayMasterCommunicatorModelStoreContainer" CdmEntityContainer="PayMasterCommunicatorEntities1">
+          <EntitySetMapping Name="tblOpcodes">
+            <EntityTypeMapping TypeName="PayMasterCommunicatorModel.tblOpcode">
+              <MappingFragment StoreEntitySet="tblOpcode">
+                <ScalarProperty Name="OpcodeID" ColumnName="OpcodeID" />
+                <ScalarProperty Name="OpcodeName" ColumnName="OpcodeName" />
+                <ScalarProperty Name="OpcodeDescription" ColumnName="OpcodeDescription" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
